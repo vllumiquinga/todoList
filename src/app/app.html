@@ -1,0 +1,31 @@
+<div class="Table">
+  <div class="Title">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="Heading">
+    <div class="Cell">
+      <input type="text" [(ngModel)]="descripcion" placeholder="Ingrese la descripcion de la tarea">
+    </div>
+    <div class="Cell">
+      <button (click)="addTask()">
+        Add ...
+      </button>
+    </div>
+  </div>
+
+   @for (task of tasks; track task.id) {
+
+  <div class="Row">
+
+    <div class="Cell">
+{{task.descripcion}}
+    </div>
+    <div class="Cell">
+<button (click)="deltask(task.id)">
+      Del ...
+    </button>
+    </div>
+  </div>
+}
+
+</div>
