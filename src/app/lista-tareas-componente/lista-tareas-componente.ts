@@ -9,6 +9,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ListaTareasComponente {
   @Input() tareas: Task[] = [];
   @Output() dataToParent = new EventEmitter<string>();
+  @Output() tareaBorrada = new EventEmitter<Task>();
+
 
   sendDataToParent(): void {
     this.dataToParent.emit('Hello from the child!');
@@ -17,8 +19,7 @@ export class ListaTareasComponente {
   deltask(id: number): void {
     let indice: number = this.tareas.findIndex(task => task.id === id);
     if (indice !== -1) {
-      this.tareas.splice(indice);
-      this.dataToParent.emit('Se borro con exito');
+      this.tareaBorrada.emit(this.tareas.splice(indice)[0]);
     }
   }  
 

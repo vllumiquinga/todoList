@@ -13,7 +13,7 @@ import { ListaTareasComponente } from './lista-tareas-componente/lista-tareas-co
 export class App {
   protected title = 'Lista de Tareas';
   protected descripcion = "";
-  receivedData: string = '';
+  receivedData: Task = {id:0,descripcion:"Ninguna"};
   tasks: Task[] = [];
 
   addTask(): void {
@@ -24,8 +24,8 @@ export class App {
   }
 
 
-  handleChildData(data: string) {
-    this.receivedData = data; // Update parent's data with data from child
+  handleChildData(tareaBorrada:Task) {
+    this.receivedData = tareaBorrada; // Update parent's data with data from child
   }
 }
 
