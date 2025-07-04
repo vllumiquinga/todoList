@@ -18,6 +18,7 @@ export class ListaTareasComponente {
     let indice: number = this.tareas.findIndex(task => task.id === id);
     if (indice !== -1) {
       this.tareas.splice(indice);
+      this.dataToParent.emit('Se borro con exito');
     }
   }  
 
