@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
+import { ListaTareasComponente } from './lista-tareas-componente/lista-tareas-componente';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [FormsModule, ListaTareasComponente],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected title = 'Lista de Tareas';
   protected descripcion = "";
+  receivedData: string = '';
   tasks: Task[] = [];
+
   addTask(): void {
     let id: number = this.tasks.length + 1;
     let descripcion: string = this.descripcion;
     this.tasks.push({ id, descripcion });
     this.descripcion = "";
   }
-  deltask(id: number): void {
-    let indice: number = this.tasks.findIndex(task => task.id === id);
-    if (indice !== -1) {
-      this.tasks.splice(indice);
-    }
+
+
+  handleChildData(data: string) {
+    this.receivedData = data; // Update parent's data with data from child
   }
 }
 

@@ -13,19 +13,11 @@
     </div>
   </div>
 
-   @for (task of tasks; track task.id) {
-
-  <div class="Row">
-
-    <div class="Cell">
-{{task.descripcion}}
-    </div>
-    <div class="Cell">
-<button (click)="deltask(task.id)">
-      Del ...
-    </button>
-    </div>
-  </div>
-}
+</div>
+<div>
+  <app-lista-tareas-componente [tareas]="tasks"></app-lista-tareas-componente>
+  
+  <!--app-lista-tareas-componente (dataToParent)="handleChildData($event)"></app-lista-tareas-componente-->
+  <!--p>Received from child: {{ receivedData }}</p-->
 
 </div>
